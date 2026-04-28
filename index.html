@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#D32F2F">
+    <title>任务清单 - 党政风格</title>
+    <meta name="description" content="党政风格的任务清单网页应用，简洁高效，支持本地存储。">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✅</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <i class="fas fa-star" aria-hidden="true"></i>
+                任务清单
+            </h1>
+            <p class="subtitle">简洁高效的任务管理应用</p>
+        </header>
+
+        <main class="main-content">
+            <section class="add-task-section" aria-labelledby="add-task-heading">
+                <h2 id="add-task-heading" class="visually-hidden">添加新任务</h2>
+                <div class="input-group">
+                    <input
+                        type="text"
+                        id="task-input"
+                        class="task-input"
+                        placeholder="输入新任务内容..."
+                        aria-label="新任务描述"
+                        maxlength="200"
+                        autocomplete="off"
+                    >
+                    <button id="add-task-btn" class="btn btn-primary" aria-label="添加任务">
+                        <i class="fas fa-plus" aria-hidden="true"></i>
+                        添加
+                    </button>
+                </div>
+                <p class="input-hint">按 Enter 键添加或点击"添加"按钮</p>
+            </section>
+
+            <section class="tasks-section" aria-labelledby="tasks-heading">
+                <h2 id="tasks-heading" class="visually-hidden">您的任务</h2>
+
+                <div class="tasks-header">
+                    <h3 class="tasks-title">任务列表</h3>
+                    <div class="tasks-stats">
+                        <span id="total-count" class="stat">总计: 0</span>
+                        <span id="completed-count" class="stat">已完成: 0</span>
+                    </div>
+                </div>
+
+                <div class="tasks-container">
+                    <ul id="tasks-list" class="tasks-list" aria-live="polite">
+                        <li class="empty-state" id="empty-state">
+                            <i class="fas fa-clipboard-list" aria-hidden="true"></i>
+                            <p>暂无任务。请在上方添加第一个任务！</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tasks-footer">
+                    <button id="clear-completed-btn" class="btn btn-secondary" aria-label="清空所有已完成任务">
+                        <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                        清空已完成
+                    </button>
+                    <div class="tasks-instructions">
+                        <p><i class="fas fa-mouse-pointer" aria-hidden="true"></i> 点击任务标记为已完成</p>
+                        <p><i class="fas fa-trash" aria-hidden="true"></i> 点击删除按钮移除任务</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer-text">
+                使用 <i class="fas fa-heart icon-heart" aria-hidden="true"></i>
+                HTML、CSS 和 JavaScript 构建
+                &bullet; 任务数据保存在您的浏览器中
+            </p>
+            <nav class="footer-links" aria-label="页脚导航">
+                <a href="https://github.com" target="_blank" rel="noopener" aria-label="在 GitHub 上查看">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    代码仓库
+                </a>
+                <button id="reset-data" class="btn-reset" aria-label="重置所有数据">
+                    <i class="fas fa-redo" aria-hidden="true"></i>
+                    重置数据
+                </button>
+            </nav>
+        </footer>
+
+        <div aria-live="polite" aria-atomic="true" class="visually-hidden" id="status-message"></div>
+    </div>
+
+    <script src="app.js" defer></script>
+</body>
+</html>
